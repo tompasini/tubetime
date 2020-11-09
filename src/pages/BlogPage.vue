@@ -1,8 +1,15 @@
 <template>
-  <div class="blog container-fluid" v-if="blog.title">
+  <div class="blog container-fluid bg-dark text-light full-screen" v-if="blog.title">
     <div class="row">
-      <div class="col-6 offset-3 border rounded shadow-lg">
-        <h1>{{ blog.title }}</h1>
+      <div class="d-flex col-12 bg-dark text-light justify-content-center">
+        <h1 class="tubetime-font">
+          <i class="fa fa-television"></i>tubetime
+        </h1>
+      </div>
+      <div class="col-6 offset-3 border rounded shadow-lg bg-card-gray-transparent text-light">
+        <h1>
+          {{ blog.title }}
+        </h1>
         <h5>Written By: {{ blog.creator.name }}</h5>
         <p>{{ blog.body }}</p>
         <button class="btn btn-info" v-if="user.isAuthenticated == true && blog.creatorEmail == profile.email" data-toggle="modal" data-target="#edit-blog">
@@ -18,7 +25,7 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
+                <h5 class="modal-title text-dark" id="exampleModalLabel">
                   Edit Blog
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -47,9 +54,11 @@
             </div>
           </div>
         </div>
-        <button class="btn btn-primary" v-if="user.isAuthenticated == true" data-toggle="modal" data-target="#add-comment">
-          Add a Comment
-        </button>
+        <div class="text-center">
+          <button class="emerald-button text-light" v-if="user.isAuthenticated == true" data-toggle="modal" data-target="#add-comment">
+            Add a Comment
+          </button>
+        </div>
         <div class="modal fade"
              id="add-comment"
              tabindex="-1"
@@ -60,7 +69,7 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
+                <h5 class="modal-title text-dark" id="exampleModalLabel">
                   Add Comment
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -71,10 +80,10 @@
                 <form @submit.prevent="addComment" class="form-group">
                   <textarea name="" id="" cols="50" rows="3" v-model="state.newComment.body"></textarea>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    <button type="button" class="btn-secondary" data-dismiss="modal">
                       Close
                     </button>
-                    <button type="submit" class="btn btn-info">
+                    <button type="submit" class="btn-info">
                       Add Comment
                     </button>
                   </div>
@@ -85,16 +94,15 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <comment-component v-for="comment in comments" :key="comment._id" :comment-prop="comment" />
+    <div class="row">
+      <comment-component v-for="comment in comments" :key="comment._id" :comment-prop="comment" />
+    </div>
   </div>
 </template>
 
 <script>
 import { computed, onMounted, reactive } from 'vue'
 import { useRoute } from 'vue-router'
-
 import { blogsService } from '../services/BlogsService'
 import { commentsService } from '../services/CommentsService'
 import { AppState } from '../AppState'
@@ -130,5 +138,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.bg-card-gray-transparent{
+  background-color: rgb(213, 218, 223, .3);
+};
+
+.bg-card-gray{
+  background-color: #d5dadf;
+};
+
+.emerald-button{
+  background-color: #50C878;
+}
+
+.tubetime-font{
+  font-family: 'Indie Flower', cursive;
+}
+
+.full-screen{
+  height: 100vh;
+}
 
 </style>

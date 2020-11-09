@@ -10,9 +10,18 @@
     </div>
   </router-link> -->
 
-  <div @click="getActiveBlog(blog.id)" class="blog-component col-3 m-1 rounded border shadow-lg">
-    <h3>Title: {{ blog.title }}</h3>
-    <p>Author: {{ blog.creatorEmail }}</p>
+  <div @click="getActiveBlog(blog.id)" class="blog-component col-12 rounded border shadow-lg bg-card-gray pointer">
+    <h3 class="blog-title">
+      Title: {{ blog.title }}
+    </h3>
+    <p class="blog-title">
+      <b>
+
+        <i>
+          Author: {{ blog.creatorEmail }}
+        </i>
+      </b>
+    </p>
     <button @click="deleteBlog(blog._id)" class="btn btn-danger" v-if="user.isAuthenticated == true && blog.creatorEmail == profile.email">
       Delete
     </button>
@@ -50,5 +59,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.bg-card-blue{
+  background-color: #a3d6f1;
+}
+
+.bg-card-gray{
+  background-color: #d5dadf;
+};
+
+.blog-title{
+  font-family: 'Barlow', sans-serif;
+}
+
+.pointer{
+  cursor: pointer;
+}
 
 </style>
