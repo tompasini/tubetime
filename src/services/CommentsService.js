@@ -1,6 +1,5 @@
 import { api } from './AxiosService'
 import { AppState } from '../AppState'
-// import { useRouter } from 'vue-router'
 
 class CommentsService {
   async getComments(id) {
@@ -14,13 +13,12 @@ class CommentsService {
 
   async addComment(commentData, blogId) {
     try {
-      // const router = useRouter()
       const newComment = {
         body: commentData.body,
         blog: blogId
       }
       await api.post('/api/comments/', newComment)
-      // router.push({ name: 'Blog', params: { id: blogId } })
+      this.getComments(blogId)
     } catch (error) {
       console.error(error)
     }
