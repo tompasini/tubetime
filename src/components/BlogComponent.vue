@@ -22,7 +22,7 @@
         </i>
       </b>
     </p>
-    <button @click="deleteBlog(blog._id)" class="btn btn-danger" v-if="user.isAuthenticated == true && blog.creatorEmail == profile.email">
+    <button @click.stop="deleteBlog(blog._id)" class="btn-danger" v-if="user.isAuthenticated == true && blog.creatorEmail == profile.email">
       Delete
     </button>
   </div>

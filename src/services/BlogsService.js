@@ -5,6 +5,7 @@ class BlogsService {
     try {
       const res = await api.post('/api/blogs', body)
       console.log(res)
+      this.getAllBlogs()
     } catch (error) {
       console.error(error)
     }
@@ -14,6 +15,7 @@ class BlogsService {
     try {
       const res = await api.put('/api/blogs/' + id, body)
       console.log(res)
+      this.getAllBlogs()
     } catch (error) {
       console.error(error)
     }
@@ -23,6 +25,7 @@ class BlogsService {
     try {
       const res = await api.delete('/api/blogs/' + id)
       console.log(res.data)
+      this.getAllBlogs()
     } catch (error) {
       console.error()
     }

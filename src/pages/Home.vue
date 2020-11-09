@@ -1,6 +1,6 @@
 <template>
   <div class="home container-fluid bg-dark text-light">
-    <div class="row text-center justify-content-center" v-if="user.isAuthenticated == true">
+    <div class="row text-center justify-content-center">
       <div class="col-12 bg-dark text-light">
         <h1 class="tubetime-font">
           <i class="fa fa-television"></i>tubetime
