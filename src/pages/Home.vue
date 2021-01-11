@@ -74,6 +74,7 @@ export default {
       createBlog() {
         blogsService.createBlog(state.newBlog)
         router.push({ name: 'Profile' })
+        state.newBlog = {}
       }
     }
   },

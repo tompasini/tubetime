@@ -5,7 +5,7 @@ class BlogsService {
     try {
       const res = await api.post('/api/blogs', body)
       console.log(res)
-      this.getAllBlogs()
+      this.getProfileBlogs()
     } catch (error) {
       console.error(error)
     }
