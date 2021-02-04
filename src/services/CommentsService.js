@@ -15,7 +15,7 @@ class CommentsService {
     try {
       const newComment = {
         body: commentData.body,
-        blog: blogId
+        blogId: blogId
       }
       await api.post('/api/comments/', newComment)
       this.getComments(blogId)

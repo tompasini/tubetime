@@ -10,7 +10,7 @@
         <h1>
           {{ blog.title }}
         </h1>
-        <h5>Written By: {{ blog.creator.name }}</h5>
+        <h5>Written By: {{ blog.creator.email }}</h5>
         <p>{{ blog.body }}</p>
         <button class="btn btn-info" v-if="user.isAuthenticated == true && blog.creatorEmail == profile.email" data-toggle="modal" data-target="#edit-blog">
           Edit

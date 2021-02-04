@@ -1,15 +1,4 @@
 <template>
-  <!-- Could not get routing working with router-link either -->
-  <!-- <router-link :to="{ name: 'Blog', params: { id: blog._id } }">
-    <div class="blog-component col-3 m-1 rounded border shadow-lg">
-      <h3>Title: {{ blog.title }}</h3>
-      <p>Author: {{ blog.creator.name }}</p>
-      <button @click="deleteBlog(blog._id)" class="btn btn-danger" v-if="user.isAuthenticated == true && blog.creatorEmail == profile.email">
-        Delete
-      </button>
-    </div>
-  </router-link> -->
-
   <div @click="getActiveBlog(blog.id)" class="blog-component col-12 rounded border shadow-lg bg-card-gray pointer">
     <h3 class="blog-title">
       Title: {{ blog.title }}
@@ -18,11 +7,11 @@
       <b>
 
         <i>
-          Author: {{ blog.creatorEmail }}
+          Author: {{ blog.creator.email }}
         </i>
       </b>
     </p>
-    <button @click.stop="deleteBlog(blog._id)" class="btn-danger" v-if="user.isAuthenticated == true && blog.creatorEmail == profile.email">
+    <button @click.stop="deleteBlog(blog.id)" class="btn-danger" v-if="user.isAuthenticated == true && blog.creator.email == profile.email">
       Delete
     </button>
   </div>

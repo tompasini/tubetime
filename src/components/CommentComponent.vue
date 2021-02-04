@@ -1,8 +1,8 @@
 <template>
   <div class="comment-component col-6 offset-3 border rounded shadow-lg mt-2 bg-card-gray-transparent text-light">
-    <div v-if="user.isAuthenticated == true && comment.creatorEmail == profile.email">
+    <div v-if="user.isAuthenticated == true && comment.creator.email == profile.email">
       {{ comment.body }}
-      <form @submit.prevent="editComment(comment._id)">
+      <form @submit.prevent="editComment(comment.id)">
         <textarea rows="1" style="border: none" v-model="state.editedComment.body"></textarea>
         <div>
           <button class="btn-secondary" type="submit">
@@ -16,8 +16,8 @@
         {{ comment.body }}
       </p>
     </div>
-    <p>-{{ comment.creatorEmail }}</p>
-    <button @click="deleteComment(comment._id)" class="red-button text-light" v-if="user.isAuthenticated == true && comment.creatorEmail == profile.email">
+    <p>-{{ comment.creator.email }}</p>
+    <button @click="deleteComment(comment._id)" class="red-button text-light" v-if="user.isAuthenticated == true && comment.creator.email == profile.email">
       Delete
     </button>
   </div>

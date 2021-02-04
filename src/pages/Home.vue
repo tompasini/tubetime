@@ -42,7 +42,7 @@
         <div class="row justify-content-center">
           <div class="col-12 text-dark blogs overflow-auto">
             <div class="row">
-              <blog-component v-for="blog in blogs" :key="blog._id" :blog-prop="blog" />
+              <blog-component v-for="blog in blogs" :key="blog.id" :blog-prop="blog" />
             </div>
           </div>
         </div>

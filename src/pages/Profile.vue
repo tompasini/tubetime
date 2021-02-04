@@ -10,7 +10,7 @@
     <div class="row justify-content-center text-center text-dark">
       <div class="col-6">
         <div class="row">
-          <blog-component v-for="blog in blogs" :key="blog._id" :blog-prop="blog" />
+          <blog-component v-for="blog in blogs" :key="blog.id" :blog-prop="blog" />
         </div>
       </div>
     </div>
@@ -67,6 +67,6 @@ img {
 }
 
 .full-screen{
-  height: 100%;
+  min-height: 100vh;
 }
 </style>
